@@ -3,20 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rahul K. — Cybersecurity Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Rahul Rajkumar Kori — Cybersecurity Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0e0f;
-    --surface: #0f1517;
-    --border: #1e2d30;
-    --accent: #00e5c8;
-    --accent2: #ff4d6d;
-    --accent3: #ffd166;
-    --text: #e2eaeb;
-    --muted: #5a7278;
-    --mono: 'Space Mono', monospace;
-    --sans: 'Syne', sans-serif;
+    --bg: #f0f4f8;
+    --surface: #ffffff;
+    --surface2: #e8f0f7;
+    --border: #c8daea;
+    --border-dark: #a0bcd4;
+    --navy: #0d2d4a;
+    --navy-mid: #1a4a72;
+    --navy-light: #2563a8;
+    --teal: #0891b2;
+    --teal-light: #e0f2fe;
+    --teal-mid: #bae6fd;
+    --green: #059669;
+    --green-light: #d1fae5;
+    --amber: #b45309;
+    --amber-light: #fef3c7;
+    --text: #0d2d4a;
+    --text-mid: #2d5a7a;
+    --text-muted: #5a7a94;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --radius: 8px;
+    --radius-lg: 14px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,32 +41,20 @@
     overflow-x: hidden;
   }
 
-  /* Grid background */
+  /* Subtle dot grid */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-image:
-      linear-gradient(rgba(0,229,200,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,229,200,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background-image: radial-gradient(circle, #a0bcd4 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.35;
     pointer-events: none;
     z-index: 0;
-  }
-
-  /* Noise overlay */
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.5;
   }
 
   .container {
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 2rem;
     position: relative;
@@ -63,175 +63,253 @@
 
   /* NAV */
   nav {
-    padding: 1.5rem 0;
+    padding: 1.25rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    z-index: 1;
+    border-bottom: 1.5px solid var(--border);
   }
 
   .nav-logo {
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    color: var(--accent);
-    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .nav-shield {
+    width: 28px;
+    height: 28px;
+  }
+
+  .nav-name {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.01em;
   }
 
   .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 0.25rem;
     list-style: none;
   }
 
   .nav-links a {
     font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--muted);
+    font-size: 0.72rem;
+    color: var(--text-muted);
     text-decoration: none;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
+    letter-spacing: 0.05em;
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius);
+    transition: all 0.15s;
   }
 
-  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover {
+    background: var(--teal-light);
+    color: var(--teal);
+  }
 
   /* HERO */
   .hero {
-    padding: 6rem 0 4rem;
-    position: relative;
+    padding: 5rem 0 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
   }
 
-  .hero-tag {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
+  .hero-eyebrow {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
   }
 
-  .hero-tag::before {
-    content: '';
-    width: 2rem;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  .hero h1 {
-    font-family: var(--sans);
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    font-weight: 800;
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 .name { color: var(--text); }
-  .hero h1 .role {
-    color: transparent;
-    -webkit-text-stroke: 1px var(--accent);
-    display: block;
-  }
-
-  .hero-summary {
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.8;
-    max-width: 560px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    border: 1px solid;
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: var(--bg);
-    border-color: var(--accent);
-  }
-  .btn-primary:hover {
-    background: transparent;
-    color: var(--accent);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--muted);
-    border-color: var(--border);
-  }
-  .btn-secondary:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  /* STATUS BAR */
-  .status-bar {
-    display: flex;
-    gap: 2rem;
-    padding: 1.25rem 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 5rem;
-    flex-wrap: wrap;
-  }
-
-  .status-item {
-    display: flex;
+  .status-pill {
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    background: var(--green-light);
+    border: 1px solid #6ee7b7;
+    color: var(--green);
     font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--muted);
+    font-size: 0.68rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 500;
   }
 
   .status-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2s infinite;
+    background: var(--green);
+    animation: pulse 2.5s infinite;
   }
 
   @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
   }
 
-  /* SECTION HEADER */
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 span {
+    color: var(--teal);
+  }
+
+  .hero-sub {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+    max-width: 480px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    padding: 0.65rem 1.35rem;
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary {
+    background: var(--navy);
+    color: #e0f2fe;
+    border: 1.5px solid var(--navy);
+  }
+  .btn-primary:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
+
+  .btn-secondary {
+    background: var(--surface);
+    color: var(--text-mid);
+    border: 1.5px solid var(--border-dark);
+  }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* HERO STAT CARD */
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 160px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-num span { color: var(--teal); }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    display: flex;
+    gap: 0;
+    margin-bottom: 4.5rem;
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .trust-item {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .trust-item:last-child { border-right: none; }
+
+  .trust-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(8,145,178,0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .trust-text-main {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: #bae6fd;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .trust-text-sub {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: rgba(186,230,253,0.5);
+  }
+
+  /* SECTION */
+  .section { margin-bottom: 4.5rem; }
+
   .section-header {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
   }
 
-  .section-label {
+  .section-tag {
     font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--accent);
-    letter-spacing: 0.2em;
+    font-size: 0.65rem;
+    color: var(--teal);
+    letter-spacing: 0.15em;
     text-transform: uppercase;
+    font-weight: 500;
+    background: var(--teal-light);
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid var(--teal-mid);
   }
 
   .section-line {
@@ -240,247 +318,291 @@
     background: var(--border);
   }
 
-  /* SKILLS GRID */
-  .skills-section { margin-bottom: 5rem; }
-
+  /* SKILLS */
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
   }
 
   .skill-card {
     background: var(--surface);
-    padding: 1.5rem;
-    transition: background 0.2s;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
   }
 
-  .skill-card:hover { background: #141c1e; }
+  .skill-card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(8,145,178,0.08);
+  }
 
-  .skill-category {
+  .skill-cat {
     font-family: var(--mono);
-    font-size: 0.65rem;
-    color: var(--accent);
-    letter-spacing: 0.15em;
+    font-size: 0.62rem;
+    color: var(--teal);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 0.75rem;
+    font-weight: 500;
   }
 
   .skill-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.35rem;
   }
 
-  .tag {
+  .stag {
     font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--muted);
-    background: rgba(0,229,200,0.05);
-    border: 1px solid rgba(0,229,200,0.1);
-    padding: 0.2rem 0.5rem;
+    font-size: 0.66rem;
+    color: var(--text-mid);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 0.18rem 0.5rem;
+    border-radius: 5px;
   }
 
   /* EXPERIENCE */
-  .experience-section { margin-bottom: 5rem; }
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
 
   .exp-item {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 200px 1fr;
     gap: 2rem;
     padding: 2rem 0;
     border-bottom: 1px solid var(--border);
+    position: relative;
   }
 
-  .exp-item:first-of-type { border-top: 1px solid var(--border); }
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 196px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
 
   .exp-meta {
     font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--muted);
-    line-height: 1.8;
+    font-size: 0.71rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    padding-top: 0.1rem;
   }
 
-  .exp-date { color: var(--accent3); margin-bottom: 0.25rem; }
+  .exp-date {
+    display: inline-block;
+    background: var(--amber-light);
+    color: var(--amber);
+    border: 1px solid #fde68a;
+    border-radius: 5px;
+    padding: 0.18rem 0.5rem;
+    font-size: 0.65rem;
+    margin-bottom: 0.4rem;
+  }
 
   .exp-content h3 {
-    font-family: var(--sans);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.25rem;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
   }
 
-  .exp-company {
+  .exp-org {
     font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--accent);
+    font-size: 0.72rem;
+    color: var(--teal);
     margin-bottom: 1rem;
   }
 
-  .exp-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
 
   .exp-bullets li {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--muted);
-    line-height: 1.7;
-    padding-left: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    padding-left: 1.1rem;
     position: relative;
   }
 
   .exp-bullets li::before {
-    content: '›';
+    content: '▸';
     position: absolute;
     left: 0;
-    color: var(--accent);
+    color: var(--teal);
+    font-size: 0.7rem;
+    top: 0.15rem;
   }
 
   .metric {
-    color: var(--accent3);
     font-weight: 700;
+    color: var(--navy);
+    background: var(--teal-light);
+    padding: 0 0.25rem;
+    border-radius: 3px;
   }
 
   /* PROJECTS */
-  .projects-section { margin-bottom: 5rem; }
-
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     gap: 1rem;
   }
 
-  .project-card {
+  .proj-card {
     background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 1.75rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
     position: relative;
-    transition: border-color 0.2s, transform 0.2s;
     overflow: hidden;
+    transition: border-color 0.15s, transform 0.15s;
   }
 
-  .project-card::before {
+  .proj-card::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transition: transform 0.3s;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--navy-light));
+    opacity: 0;
+    transition: opacity 0.2s;
   }
 
-  .project-card:hover::before { transform: scaleX(1); }
-  .project-card:hover { border-color: rgba(0,229,200,0.3); }
+  .proj-card:hover { border-color: var(--border-dark); transform: translateY(-2px); }
+  .proj-card:hover::after { opacity: 1; }
 
-  .project-number {
+  .proj-num {
     font-family: var(--mono);
-    font-size: 0.65rem;
-    color: var(--border);
+    font-size: 0.62rem;
+    color: var(--border-dark);
     letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .proj-card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .proj-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.7;
     margin-bottom: 1rem;
   }
 
-  .project-card h3 {
-    font-family: var(--sans);
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-  }
+  .proj-stack { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 
-  .project-card p {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 1.25rem;
-  }
-
-  .project-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  .stack-tag {
+  .ptag {
     font-family: var(--mono);
     font-size: 0.62rem;
-    color: var(--accent);
-    border: 1px solid rgba(0,229,200,0.2);
-    padding: 0.15rem 0.45rem;
-    letter-spacing: 0.05em;
+    color: var(--teal);
+    background: var(--teal-light);
+    border: 1px solid var(--teal-mid);
+    padding: 0.18rem 0.5rem;
+    border-radius: 5px;
   }
 
   /* CERTS */
-  .certs-section { margin-bottom: 5rem; }
+  .certs-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
-  .certs-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .cert-badge {
-    border: 1px solid var(--border);
+  .cert-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
     padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    transition: border-color 0.2s;
+    gap: 1rem;
+    flex: 1;
+    min-width: 200px;
+    transition: border-color 0.15s;
   }
 
-  .cert-badge:hover { border-color: var(--accent); }
+  .cert-card:hover { border-color: var(--navy-light); }
 
-  .cert-icon {
-    font-size: 1.2rem;
+  .cert-ico {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
+
+  .cert-ico.blue { background: #dbeafe; }
+  .cert-ico.teal { background: var(--teal-light); }
+  .cert-ico.amber { background: var(--amber-light); }
 
   .cert-name {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--text);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--navy);
     display: block;
+    margin-bottom: 0.1rem;
   }
 
   .cert-year {
     font-family: var(--mono);
     font-size: 0.65rem;
-    color: var(--muted);
+    color: var(--text-muted);
   }
 
   /* CONTACT */
-  .contact-section {
-    padding: 4rem 0;
-    border-top: 1px solid var(--border);
+  .contact-wrap {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-wrap::before {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 40px solid rgba(8,145,178,0.12);
+  }
+
+  .contact-wrap::after {
+    content: '';
+    position: absolute;
+    right: 60px; top: 60px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    border: 25px solid rgba(8,145,178,0.08);
   }
 
   .contact-left h2 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    line-height: 1;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #f0f9ff;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
     margin-bottom: 0.5rem;
   }
 
   .contact-left p {
     font-family: var(--mono);
-    font-size: 0.78rem;
-    color: var(--muted);
+    font-size: 0.75rem;
+    color: rgba(186,230,253,0.6);
   }
 
   .contact-links {
@@ -488,64 +610,96 @@
     flex-direction: column;
     gap: 0.5rem;
     align-items: flex-end;
+    position: relative;
+    z-index: 1;
   }
 
-  .contact-link {
+  .clink {
     font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--muted);
+    font-size: 0.74rem;
+    color: #bae6fd;
     text-decoration: none;
-    letter-spacing: 0.05em;
-    transition: color 0.2s;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    transition: color 0.15s;
+    padding: 0.3rem 0;
   }
 
-  .contact-link:hover { color: var(--accent); }
-  .contact-link::after { content: '→'; color: var(--accent); }
+  .clink:hover { color: #e0f2fe; }
+
+  .clink-arrow {
+    width: 16px;
+    height: 16px;
+    background: rgba(8,145,178,0.3);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+  }
 
   /* FOOTER */
   footer {
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--border);
+    padding: 1.25rem 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-top: 1px solid var(--border);
   }
 
-  .footer-text {
+  .foot-text {
     font-family: var(--mono);
     font-size: 0.65rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .foot-badge {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--teal);
+    background: var(--teal-light);
+    border: 1px solid var(--teal-mid);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
   }
 
   /* ANIMATIONS */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .hero { animation: fadeUp 0.6s ease forwards; }
-  .status-bar { animation: fadeUp 0.6s ease 0.1s both; }
-  .skills-section { animation: fadeUp 0.6s ease 0.2s both; }
-  .experience-section { animation: fadeUp 0.6s ease 0.3s both; }
-  .projects-section { animation: fadeUp 0.6s ease 0.4s both; }
+  .hero    { animation: fadeUp 0.5s ease both; }
+  .trust-bar { animation: fadeUp 0.5s ease 0.1s both; }
+  .section { animation: fadeUp 0.5s ease 0.15s both; }
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: row; }
+    .stat-card { flex: 1; }
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-    .contact-section { flex-direction: column; align-items: flex-start; }
+    .exp-item::before { display: none; }
+    .trust-bar { flex-direction: column; border-radius: var(--radius); }
+    .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .contact-wrap { padding: 2rem; }
     .contact-links { align-items: flex-start; }
     .nav-links { display: none; }
   }
 </style>
 </head>
 <body>
-
 <div class="container">
+
+  <!-- NAV -->
   <nav>
-    <div class="nav-logo">// rahul.k</div>
+    <div class="nav-logo">
+      <svg class="nav-shield" viewBox="0 0 28 28" fill="none">
+        <path d="M14 3L4 7v7c0 5.5 4.3 10.6 10 12 5.7-1.4 10-6.5 10-12V7L14 3z" fill="#0d2d4a" stroke="#2563a8" stroke-width="1.5"/>
+        <path d="M10 14l3 3 5-5" stroke="#bae6fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="nav-name">Rahul Rajkumar Kori</span>
+    </div>
     <ul class="nav-links">
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -555,273 +709,320 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-tag">Cybersecurity Engineer</div>
-    <h1>
-      <span class="name">Rahul K.</span>
-      <span class="role">Security &amp; Detection</span>
-    </h1>
-    <p class="hero-summary">
-      3+ years in network security, threat detection, and incident response.<br>
-      Currently pursuing M.S. Cybersecurity Risk Management @ Indiana University.<br>
-      EAD · Open to relocation anywhere in the US.
-    </p>
-    <div class="hero-cta">
-      <a href="https://www.linkedin.com/in/rahul-kori/" class="btn btn-primary" target="_blank">LinkedIn Profile</a>
-      <a href="https://github.com/Rahul7259" class="btn btn-secondary" target="_blank">GitHub</a>
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          Available for roles
+        </div>
+      </div>
+      <h1>Defensive Security<br><span>Engineer.</span></h1>
+      <p class="hero-sub">
+        3+ years in threat detection, incident response &amp; network security.<br>
+        M.S. Cybersecurity Risk Management @ Indiana University.<br>
+        EAD &nbsp;·&nbsp; Open to relocation anywhere in the US.
+      </p>
+      <div class="hero-cta">
+        <a href="https://www.linkedin.com/in/rahul-kori/" class="btn btn-primary" target="_blank">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="4" fill="#bae6fd" opacity=".3"/><path d="M8 11v5M8 8v.5M12 16v-5m0 0c0-1.1.9-2 2-2s2 .9 2 2v5" stroke="#bae6fd" stroke-width="2" stroke-linecap="round"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/Rahul7259" class="btn btn-secondary" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="#2d5a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num"><span>~25%</span></div>
+        <div class="stat-label">MTTR Reduction</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num"><span>200+</span></div>
+        <div class="stat-label">Incidents Investigated</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num"><span>3+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
     </div>
   </section>
 
-  <!-- STATUS BAR -->
-  <div class="status-bar">
-    <div class="status-item">
-      <span class="status-dot"></span>
-      <span>Available for roles</span>
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6L12 2z" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="trust-text-main">NIST CSF · ISO 27001</div>
+        <div class="trust-text-sub">Compliance frameworks</div>
+      </div>
     </div>
-    <div class="status-item">// Bloomington, IN</div>
-    <div class="status-item">// MTTR reduced ~25%</div>
-    <div class="status-item">// 200+ incidents investigated</div>
-    <div class="status-item">// 765-543-8701</div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#38bdf8" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div class="trust-text-main">Splunk · MITRE ATT&amp;CK</div>
+        <div class="trust-text-sub">Threat detection &amp; SIEM</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="#38bdf8" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="#38bdf8" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="#38bdf8" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="#38bdf8" stroke-width="2"/></svg>
+      </div>
+      <div>
+        <div class="trust-text-main">AWS · Lambda · IAM</div>
+        <div class="trust-text-sub">Cloud security &amp; DevSecOps</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="#38bdf8" stroke-width="2"/></svg>
+      </div>
+      <div>
+        <div class="trust-text-main">Ansible · Burp Suite · Nessus</div>
+        <div class="trust-text-sub">Security tooling</div>
+      </div>
+    </div>
   </div>
 
   <!-- SKILLS -->
-  <section class="skills-section">
+  <section class="section">
     <div class="section-header">
-      <span class="section-label">Technical Skills</span>
+      <span class="section-tag">Technical Skills</span>
       <div class="section-line"></div>
     </div>
-
     <div class="skills-grid">
       <div class="skill-card">
-        <div class="skill-category">Security &amp; Risk</div>
+        <div class="skill-cat">Security &amp; Risk Management</div>
         <div class="skill-tags">
-          <span class="tag">Vulnerability Mgmt</span>
-          <span class="tag">Penetration Testing</span>
-          <span class="tag">CVSS 3.1</span>
-          <span class="tag">NIST CSF</span>
-          <span class="tag">ISO 27001</span>
-          <span class="tag">HIPAA</span>
-          <span class="tag">OWASP Top 10</span>
-          <span class="tag">SAST</span>
-          <span class="tag">DAST</span>
+          <span class="stag">Vulnerability Mgmt</span><span class="stag">Penetration Testing</span><span class="stag">CVSS 3.1</span><span class="stag">NIST CSF</span><span class="stag">ISO 27001</span><span class="stag">HIPAA</span><span class="stag">OWASP Top 10</span><span class="stag">SAST</span><span class="stag">DAST</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-category">Threat Detection &amp; SIEM</div>
+        <div class="skill-cat">Threat Detection &amp; SIEM</div>
         <div class="skill-tags">
-          <span class="tag">Splunk (SPL)</span>
-          <span class="tag">SIEM</span>
-          <span class="tag">Threat Hunting</span>
-          <span class="tag">Incident Response</span>
-          <span class="tag">MITRE ATT&amp;CK</span>
+          <span class="stag">Splunk (SPL)</span><span class="stag">Threat Hunting</span><span class="stag">Incident Response</span><span class="stag">MITRE ATT&amp;CK</span><span class="stag">PCAP Analysis</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-category">Networking &amp; Systems</div>
+        <div class="skill-cat">Networking &amp; Systems</div>
         <div class="skill-tags">
-          <span class="tag">TCP/IP</span>
-          <span class="tag">BGP</span>
-          <span class="tag">OSPF</span>
-          <span class="tag">DNS</span>
-          <span class="tag">VPNs</span>
-          <span class="tag">Firewalls</span>
-          <span class="tag">Wireshark</span>
-          <span class="tag">tcpdump</span>
-          <span class="tag">Nmap</span>
+          <span class="stag">TCP/IP</span><span class="stag">BGP</span><span class="stag">OSPF</span><span class="stag">SIP/VoIP</span><span class="stag">DNS</span><span class="stag">VPNs</span><span class="stag">Firewalls</span><span class="stag">Wireshark</span><span class="stag">tcpdump</span><span class="stag">Nmap</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-category">Cloud &amp; DevSecOps</div>
+        <div class="skill-cat">Cloud &amp; DevSecOps</div>
         <div class="skill-tags">
-          <span class="tag">AWS IAM</span>
-          <span class="tag">S3</span>
-          <span class="tag">Lambda</span>
-          <span class="tag">CloudTrail</span>
-          <span class="tag">EventBridge</span>
-          <span class="tag">CloudWatch</span>
-          <span class="tag">CI/CD Security</span>
-          <span class="tag">GitHub Actions</span>
+          <span class="stag">AWS IAM</span><span class="stag">S3</span><span class="stag">Lambda</span><span class="stag">CloudTrail</span><span class="stag">EventBridge</span><span class="stag">CloudWatch</span><span class="stag">GitHub Actions</span><span class="stag">CI/CD Security</span><span class="stag">Ansible</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-category">Security Tools</div>
+        <div class="skill-cat">Security Tools</div>
         <div class="skill-tags">
-          <span class="tag">Burp Suite</span>
-          <span class="tag">OWASP ZAP</span>
-          <span class="tag">Nessus</span>
-          <span class="tag">VirusTotal</span>
-          <span class="tag">Any.Run</span>
-          <span class="tag">Shodan</span>
+          <span class="stag">Burp Suite</span><span class="stag">OWASP ZAP</span><span class="stag">Nessus</span><span class="stag">VirusTotal</span><span class="stag">Any.Run</span><span class="stag">Shodan</span><span class="stag">OpenSSL</span>
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-category">Programming</div>
+        <div class="skill-cat">Programming &amp; Automation</div>
         <div class="skill-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Bash</span>
-          <span class="tag">PowerShell</span>
-          <span class="tag">Perl</span>
-          <span class="tag">VBScript</span>
-          <span class="tag">Git</span>
+          <span class="stag">Python</span><span class="stag">Bash</span><span class="stag">PowerShell</span><span class="stag">Perl</span><span class="stag">YAML</span><span class="stag">Git</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- EXPERIENCE -->
-  <section class="experience-section" id="experience">
+  <section class="section" id="experience">
     <div class="section-header">
-      <span class="section-label">Experience</span>
+      <span class="section-tag">Experience</span>
       <div class="section-line"></div>
     </div>
-
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-date">Aug 2025 – Dec 2025</div>
-        <div>Indiana University</div>
-        <div>Bloomington, IN</div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Aug 2025 – Dec 2025</div>
+          <div>Indiana University</div>
+          <div>Bloomington, IN</div>
+        </div>
+        <div class="exp-content">
+          <h3>Teaching Assistant</h3>
+          <div class="exp-org">Security for Network Systems · Indiana University</div>
+          <ul class="exp-bullets">
+            <li>Led hands-on security training for <span class="metric">50+ graduate students</span> covering secure network architecture and threat modeling.</li>
+            <li>Instructed Linux hardening and iptables firewall configurations, improving lab success rates by <span class="metric">30%+</span>.</li>
+            <li>Designed and executed real-world attack simulations involving misconfigurations and network exploits.</li>
+          </ul>
+        </div>
       </div>
-      <div class="exp-content">
-        <h3>Teaching Assistant</h3>
-        <div class="exp-company">Security for Network Systems</div>
-        <ul class="exp-bullets">
-          <li>Led hands-on security training for <span class="metric">50+ graduate students</span> covering secure network architecture and threat modeling.</li>
-          <li>Instructed Linux hardening and iptables configurations, improving lab success rates by <span class="metric">30%+</span>.</li>
-          <li>Designed and executed real-world attack simulations involving misconfigurations and network exploits.</li>
-        </ul>
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Jul 2023 – Aug 2024</div>
+          <div>Ribbon Communications</div>
+          <div>Bengaluru, India</div>
+        </div>
+        <div class="exp-content">
+          <h3>Senior Technical Analyst</h3>
+          <div class="exp-org">Ribbon Communications · Telecom Security</div>
+          <ul class="exp-bullets">
+            <li>Analyzed millions of SIEM-ingested network and signaling events daily via Splunk across telecom infrastructure.</li>
+            <li>Designed dashboards and correlation searches reducing MTTR by <span class="metric">~25%</span> and false positives by <span class="metric">~30%</span>.</li>
+            <li>Conducted FIPS 140-2 compliance testing using OpenSSL across production environments.</li>
+            <li>Improved detection logic and alerting rules, significantly reducing alert fatigue.</li>
+          </ul>
+        </div>
       </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-date">Jul 2023 – Aug 2024</div>
-        <div>Ribbon Communications</div>
-        <div>Bengaluru, India</div>
-      </div>
-      <div class="exp-content">
-        <h3>Senior Technical Analyst</h3>
-        <div class="exp-company">Ribbon Communications</div>
-        <ul class="exp-bullets">
-          <li>Analyzed millions of network and signaling events daily via Splunk across telecom infrastructure.</li>
-          <li>Designed and implemented Splunk dashboards reducing MTTR by <span class="metric">~25%</span> and false positives by <span class="metric">~30%</span>.</li>
-          <li>Improved detection logic and alerting rules, significantly reducing alert fatigue.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-date">Aug 2021 – Jun 2023</div>
-        <div>Ribbon Communications</div>
-        <div>Bengaluru, India</div>
-      </div>
-      <div class="exp-content">
-        <h3>Technical Analyst</h3>
-        <div class="exp-company">Ribbon Communications</div>
-        <ul class="exp-bullets">
-          <li>Investigated <span class="metric">200+</span> security incidents using PCAP analysis, mapping attacker behaviors to MITRE ATT&amp;CK.</li>
-          <li>Detected lateral movement, C2 traffic, and anomalous network patterns to improve triage accuracy.</li>
-          <li>Executed API security assessments using Burp Suite, identifying broken auth and injection flaws.</li>
-        </ul>
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Aug 2021 – Jun 2023</div>
+          <div>Ribbon Communications</div>
+          <div>Bengaluru, India</div>
+        </div>
+        <div class="exp-content">
+          <h3>Technical Analyst</h3>
+          <div class="exp-org">Ribbon Communications · SOC Operations</div>
+          <ul class="exp-bullets">
+            <li>Investigated <span class="metric">200+ security incidents</span> using PCAP analysis, mapping attacker TTPs to MITRE ATT&amp;CK.</li>
+            <li>Detected lateral movement, C2 traffic, and anomalous network patterns to improve incident triage accuracy.</li>
+            <li>Analyzed SIP ladder diagrams and RTP packet captures using Wireshark for VoIP environments.</li>
+            <li>Executed API security assessments with Burp Suite, identifying broken auth and injection flaws.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section class="projects-section" id="projects">
+  <section class="section" id="projects">
     <div class="section-header">
-      <span class="section-label">Projects</span>
+      <span class="section-tag">Projects</span>
       <div class="section-line"></div>
     </div>
-
     <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-number">01</div>
+      <div class="proj-card">
+        <div class="proj-num">01 · AWS · Python</div>
         <h3>Automated S3 Security Remediation</h3>
-        <p>Event-driven system to detect and auto-fix S3 misconfigurations in real time. Reduced response time from minutes to seconds.</p>
-        <div class="project-stack">
-          <span class="stack-tag">AWS Lambda</span>
-          <span class="stack-tag">CloudTrail</span>
-          <span class="stack-tag">EventBridge</span>
-          <span class="stack-tag">IAM</span>
-          <span class="stack-tag">Python</span>
+        <p>Event-driven system to detect and auto-fix S3 misconfigurations in real time. Reduced response time from minutes to seconds using Lambda + EventBridge.</p>
+        <div class="proj-stack">
+          <span class="ptag">AWS Lambda</span><span class="ptag">CloudTrail</span><span class="ptag">EventBridge</span><span class="ptag">IAM</span><span class="ptag">Python</span>
         </div>
       </div>
-
-      <div class="project-card">
-        <div class="project-number">02</div>
+      <div class="proj-card">
+        <div class="proj-num">02 · GitHub Actions · SonarCloud</div>
         <h3>Automated DevSecOps Pipeline</h3>
-        <p>CI/CD-integrated pipeline enforcing SAST security gates aligned with OWASP Top 10. Reduced manual review effort by ~40%.</p>
-        <div class="project-stack">
-          <span class="stack-tag">GitHub Actions</span>
-          <span class="stack-tag">SonarCloud</span>
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">CI/CD</span>
+        <p>CI/CD pipeline with SAST security gates aligned to OWASP Top 10. Reduced manual security review effort by ~40% across 3–5 repositories.</p>
+        <div class="proj-stack">
+          <span class="ptag">GitHub Actions</span><span class="ptag">SonarCloud</span><span class="ptag">Python</span><span class="ptag">CI/CD</span>
         </div>
       </div>
-
-      <div class="project-card">
-        <div class="project-number">03</div>
-        <h3>Cybersecurity Clinic</h3>
-        <p>Delivered a comprehensive Incident Response Plan for a real client, aligned with NIST CSF, ISO 27001, and HIPAA compliance requirements.</p>
-        <div class="project-stack">
-          <span class="stack-tag">NIST CSF</span>
-          <span class="stack-tag">ISO 27001</span>
-          <span class="stack-tag">HIPAA</span>
-          <span class="stack-tag">Risk Assessment</span>
+      <div class="proj-card">
+        <div class="proj-num">03 · Ansible · Apache · UFW</div>
+        <h3>Ansible Secure Apache Deployment</h3>
+        <p>Automated provisioning of hardened Ubuntu web servers with TLS via Let's Encrypt, UFW default-deny firewall, Apache security headers, and failover backup/restore.</p>
+        <div class="proj-stack">
+          <span class="ptag">Ansible</span><span class="ptag">Apache</span><span class="ptag">UFW</span><span class="ptag">Certbot</span><span class="ptag">Linux</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">04 · NIST CSF · HIPAA · ISO 27001</div>
+        <h3>Cybersecurity Clinic (Consulting)</h3>
+        <p>Delivered a full Incident Response Plan for a real client. Conducted risk assessments, prioritized vulnerabilities by business impact, and presented remediation roadmap.</p>
+        <div class="proj-stack">
+          <span class="ptag">NIST CSF</span><span class="ptag">ISO 27001</span><span class="ptag">HIPAA</span><span class="ptag">Risk Assessment</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">05 · Seed Lab · Security</div>
+        <h3>Seed Lab Solutions</h3>
+        <p>Hands-on security lab exercises covering buffer overflows, SQL injection, XSS, network attacks, and cryptographic protocols in a controlled environment.</p>
+        <div class="proj-stack">
+          <span class="ptag">Linux</span><span class="ptag">C</span><span class="ptag">Python</span><span class="ptag">Networking</span><span class="ptag">Cryptography</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">06 · Security Tool</div>
+        <h3>Password Strength Analyzer</h3>
+        <p>Tool to evaluate password strength against common attack patterns including dictionary attacks, brute force estimation, and entropy analysis.</p>
+        <div class="proj-stack">
+          <span class="ptag">Python</span><span class="ptag">Entropy Analysis</span><span class="ptag">Security</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CERTIFICATIONS -->
-  <section class="certs-section">
+  <!-- CERTS -->
+  <section class="section">
     <div class="section-header">
-      <span class="section-label">Certifications</span>
+      <span class="section-tag">Certifications</span>
       <div class="section-line"></div>
     </div>
     <div class="certs-row">
-      <div class="cert-badge">
-        <span class="cert-icon">🛡️</span>
+      <div class="cert-card">
+        <div class="cert-ico blue">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6L12 2z" fill="#1d4ed8" opacity=".15" stroke="#1d4ed8" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#1d4ed8" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
         <div>
           <span class="cert-name">CompTIA Security+</span>
-          <span class="cert-year">2025</span>
+          <span class="cert-year">Earned 2025</span>
         </div>
       </div>
-      <div class="cert-badge">
-        <span class="cert-icon">🌐</span>
+      <div class="cert-card">
+        <div class="cert-ico teal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0891b2" stroke-width="1.5" fill="#0891b2" fill-opacity=".1"/><path d="M8 12h8M12 8v8" stroke="#0891b2" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
         <div>
           <span class="cert-name">CCNA</span>
-          <span class="cert-year">2026</span>
+          <span class="cert-year">Earned 2026</span>
         </div>
       </div>
-      <div class="cert-badge">
-        <span class="cert-icon">☁️</span>
+      <div class="cert-card">
+        <div class="cert-ico amber">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="#b45309" stroke-width="1.5" fill="#b45309" fill-opacity=".1"/><path d="M9 22V12h6v10" stroke="#b45309" stroke-width="1.5"/></svg>
+        </div>
         <div>
           <span class="cert-name">AWS Cloud Practitioner</span>
-          <span class="cert-year">2025</span>
+          <span class="cert-year">Earned 2025</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="contact-section" id="contact">
-    <div class="contact-left">
-      <h2>Let's work<br>together.</h2>
-      <p>Open to full-time roles and internships in cybersecurity.</p>
+  <section class="section" id="contact">
+    <div class="section-header">
+      <span class="section-tag">Contact</span>
+      <div class="section-line"></div>
     </div>
-    <div class="contact-links">
-      <a href="mailto:rahulrajkumarkori1999@gmail.com" class="contact-link">rahulrajkumarkori1999@gmail.com</a>
-      <a href="https://www.linkedin.com/in/rahul-kori/" class="contact-link" target="_blank">linkedin.com/in/rahul-kori</a>
-      <a href="https://github.com/Rahul7259" class="contact-link" target="_blank">github.com/Rahul7259</a>
+    <div class="contact-wrap">
+      <div class="contact-left">
+        <h2>Let's build something<br>secure together.</h2>
+        <p>Open to full-time roles &amp; internships in cybersecurity.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:rahulrajkumarkori1999@gmail.com" class="clink">
+          rahulrajkumarkori1999@gmail.com
+          <span class="clink-arrow">→</span>
+        </a>
+        <a href="https://www.linkedin.com/in/rahul-kori/" class="clink" target="_blank">
+          linkedin.com/in/rahul-kori
+          <span class="clink-arrow">→</span>
+        </a>
+        <a href="https://github.com/Rahul7259" class="clink" target="_blank">
+          github.com/Rahul7259
+          <span class="clink-arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 
   <footer>
-    <span class="footer-text">© 2026 Rahul Rajkumar Kori</span>
-    <span class="footer-text">Bloomington, IN · EAD · Open to relocation</span>
+    <span class="foot-text">© 2026 Rahul Rajkumar Kori · Bloomington, IN</span>
+    <span class="foot-badge">EAD · Open to relocation</span>
   </footer>
-</div>
 
+</div>
 </body>
 </html>
