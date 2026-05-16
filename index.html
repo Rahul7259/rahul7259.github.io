@@ -29,7 +29,6 @@
   --r:        6px;
 }
 
-/* ── RESET ──────────────────────────────────────────────────── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 
@@ -41,8 +40,6 @@ body {
   cursor: default;
 }
 
-/* ── ATMOSPHERE ─────────────────────────────────────────────── */
-/* Noise grain */
 body::before {
   content: '';
   position: fixed; inset: 0; z-index: 0;
@@ -52,7 +49,6 @@ body::before {
   opacity: 0.5;
 }
 
-/* Grid lines */
 body::after {
   content: '';
   position: fixed; inset: 0; z-index: 0;
@@ -63,7 +59,6 @@ body::after {
   pointer-events: none;
 }
 
-/* Glow orbs */
 .orb {
   position: fixed;
   border-radius: 50%;
@@ -80,13 +75,11 @@ body::after {
   66%      { transform: translate(20px, -20px); }
 }
 
-/* Scanlines */
 .scanlines {
   position: fixed; inset: 0; z-index: 9999; pointer-events: none;
   background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 4px);
 }
 
-/* ── LAYOUT ─────────────────────────────────────────────────── */
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
 
 /* ── NAV ────────────────────────────────────────────────────── */
@@ -310,7 +303,6 @@ nav {
 }
 
 /* ── PROJECTS ───────────────────────────────────────────────── */
-/* 2-column featured + 2x2 small grid */
 .proj-layout { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
 .proj-layout .featured { grid-column: 1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
 
@@ -397,17 +389,10 @@ footer {
 }
 
 /* ── SCROLL REVEAL ──────────────────────────────────────────── */
-.reveal {
-  opacity:0; transform:translateY(22px);
-  transition: opacity .6s ease, transform .6s ease;
-}
+.reveal { opacity:0; transform:translateY(22px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity:1; transform:translateY(0); }
 
-/* staggered children */
-.reveal-stagger > * {
-  opacity:0; transform:translateY(18px);
-  transition: opacity .5s ease, transform .5s ease;
-}
+.reveal-stagger > * { opacity:0; transform:translateY(18px); transition: opacity .5s ease, transform .5s ease; }
 .reveal-stagger.in > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:.05s; }
 .reveal-stagger.in > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:.12s; }
 .reveal-stagger.in > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:.19s; }
@@ -415,7 +400,6 @@ footer {
 .reveal-stagger.in > *:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:.33s; }
 .reveal-stagger.in > *:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:.40s; }
 
-/* Hero always visible */
 .hero-left, .terminal { opacity:0; animation: fadeUp .7s ease forwards; }
 .hero-left { animation-delay: .1s; }
 .terminal  { animation-delay: .3s; }
@@ -472,9 +456,9 @@ footer {
     <div class="hero-eyebrow">Bloomington, IN &nbsp;·&nbsp; EAD &nbsp;·&nbsp; Open to relocation</div>
     <h1>Rahul<br>Rajkumar<br><span class="g">Kori.</span></h1>
     <p class="hero-sub">
-      <strong>Cybersecurity Engineer</strong> with 3+ years in threat detection,<br>
-      incident response &amp; offensive security.<br>
-      M.S. Cybersecurity Risk Management — Indiana University.
+      <strong>Cybersecurity Engineer</strong> with 3+ years in security testing,<br>
+      threat detection &amp; offensive security.<br>
+      M.S. Cybersecurity Risk Management — Indiana University (May 2026).
     </p>
     <div class="hero-btns">
       <a href="https://www.linkedin.com/in/rahul-kori/" class="btn btn-solid" target="_blank">↗ LinkedIn</a>
@@ -488,22 +472,20 @@ footer {
       <div style="display:flex;gap:.35rem"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
       <span class="term-bar-title">rahul@kori-sec — bash</span>
     </div>
-    <div class="term-body" id="term-body">
-      <span class="tl"><span class="ps">➜ ~</span> <span class="cmd">nmap -sV localhost</span></span>
-      <span class="tl"><span class="d">Starting scan on 127.0.0.1...</span></span>
-      <span class="tl"><span class="d">PORT&nbsp;&nbsp;&nbsp; STATE SERVICE&nbsp;&nbsp; VERSION</span></span>
-      <span class="tl"><span class="co">443/tcp</span> <span class="v">open</span>&nbsp; <span class="d">https&nbsp;&nbsp;&nbsp;&nbsp; Secure</span></span>
-      <span class="tl"><span class="co">22/tcp</span>&nbsp; <span class="v">open</span>&nbsp; <span class="d">ssh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hardened</span></span>
+    <div class="term-body">
+      <span class="tl"><span class="ps">➜ ~</span> <span class="cmd">openssl s_client -connect sbc:443</span></span>
+      <span class="tl"><span class="d">Cipher: TLSv1.3 AES-256-GCM-SHA384</span></span>
+      <span class="tl"><span class="co">FIPS 140-2</span> <span class="v">COMPLIANT</span> <span class="d">✓</span></span>
       <span class="tl">&nbsp;</span>
       <span class="tl"><span class="ps">➜ ~</span> <span class="cmd">cat profile.json</span></span>
       <span class="tl"><span class="d">{</span></span>
-      <span class="tl"><span class="d">&nbsp; <span class="k">"name"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="v">"Rahul Kori"</span>,</span></span>
-      <span class="tl"><span class="d">&nbsp; <span class="k">"role"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="v">"Security Engineer"</span>,</span></span>
-      <span class="tl"><span class="d">&nbsp; <span class="k">"yoe"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="v">3</span>,</span></span>
-      <span class="tl"><span class="d">&nbsp; <span class="k">"mttr_cut"</span>:&nbsp;&nbsp;&nbsp;<span class="v">"~25%"</span>,</span></span>
-      <span class="tl"><span class="d">&nbsp; <span class="k">"incidents"</span>:&nbsp;&nbsp;<span class="v">200</span>,</span></span>
-      <span class="tl"><span class="d">&nbsp; <span class="k">"certs"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<span class="v">"Sec+"</span>,<span class="v">"CCNA"</span>,<span class="v">"AWS"</span>],</span></span>
-      <span class="tl"><span class="d">&nbsp; <span class="k">"available"</span>:&nbsp;&nbsp;<span class="v">true</span></span></span>
+      <span class="tl"><span class="d">&nbsp; <span class="k">"name"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="v">"Rahul Kori"</span>,</span></span>
+      <span class="tl"><span class="d">&nbsp; <span class="k">"role"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="v">"Security Engineer"</span>,</span></span>
+      <span class="tl"><span class="d">&nbsp; <span class="k">"yoe"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="v">3</span>,</span></span>
+      <span class="tl"><span class="d">&nbsp; <span class="k">"tools"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<span class="v">"Nessus"</span>,<span class="v">"OpenSSL"</span>,<span class="v">"Burp"</span>],</span></span>
+      <span class="tl"><span class="d">&nbsp; <span class="k">"protocols"</span>:&nbsp; [<span class="v">"SIP"</span>,<span class="v">"RTP"</span>,<span class="v">"TLS"</span>],</span></span>
+      <span class="tl"><span class="d">&nbsp; <span class="k">"certs"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<span class="v">"Sec+"</span>,<span class="v">"CCNA"</span>,<span class="v">"AWS"</span>],</span></span>
+      <span class="tl"><span class="d">&nbsp; <span class="k">"available"</span>:&nbsp; <span class="v">true</span></span></span>
       <span class="tl"><span class="d">}</span></span>
       <span class="tl">&nbsp;</span>
       <span class="tl"><span class="ps">➜ ~</span> <span class="cursor-blink"></span></span>
@@ -540,39 +522,39 @@ footer {
   </div>
   <div class="skills-grid reveal-stagger">
     <div class="sb">
-      <div class="sb-head">Security &amp; Risk</div>
+      <div class="sb-head">Security Testing</div>
       <div class="sb-tags">
-        <span class="stag">Vuln Management</span><span class="stag">Pen Testing</span><span class="stag">CVSS 3.1</span><span class="stag">NIST CSF</span><span class="stag">ISO 27001</span><span class="stag">HIPAA</span><span class="stag">OWASP Top 10</span><span class="stag">SAST/DAST</span>
+        <span class="stag">Nessus</span><span class="stag">Burp Suite</span><span class="stag">Metasploit</span><span class="stag">Nmap</span><span class="stag">OpenSSL</span><span class="stag">FIPS 140-2</span><span class="stag">Code Review</span><span class="stag">CVSS 3.1</span><span class="stag">OWASP Top 10</span>
       </div>
     </div>
     <div class="sb">
       <div class="sb-head">Threat Detection</div>
       <div class="sb-tags">
-        <span class="stag">Splunk SPL</span><span class="stag">Threat Hunting</span><span class="stag">MITRE ATT&CK</span><span class="stag">PCAP Analysis</span><span class="stag">IDS/IPS</span><span class="stag">DFIR</span>
+        <span class="stag">Splunk SPL</span><span class="stag">Threat Hunting</span><span class="stag">MITRE ATT&CK</span><span class="stag">PCAP Analysis</span><span class="stag">IDS/IPS</span><span class="stag">DFIR</span><span class="stag">Wireshark</span><span class="stag">tcpdump</span>
       </div>
     </div>
     <div class="sb">
-      <div class="sb-head">Networking</div>
+      <div class="sb-head">Protocols &amp; Networking</div>
       <div class="sb-tags">
-        <span class="stag">TCP/IP</span><span class="stag">BGP</span><span class="stag">OSPF</span><span class="stag">SIP/VoIP</span><span class="stag">DNS</span><span class="stag">VPN</span><span class="stag">Firewalls</span><span class="stag">Wireshark</span><span class="stag">Nmap</span>
+        <span class="stag">SIP</span><span class="stag">RTP</span><span class="stag">SCTP</span><span class="stag">VoIP</span><span class="stag">TCP/IP</span><span class="stag">TLS/SSL</span><span class="stag">BGP</span><span class="stag">OSPF</span><span class="stag">DNS</span><span class="stag">Firewalls</span>
       </div>
     </div>
     <div class="sb">
       <div class="sb-head">Cloud &amp; DevSecOps</div>
       <div class="sb-tags">
-        <span class="stag">AWS IAM</span><span class="stag">Lambda</span><span class="stag">CloudTrail</span><span class="stag">EventBridge</span><span class="stag">Azure AD</span><span class="stag">GitHub Actions</span><span class="stag">Terraform</span><span class="stag">Ansible</span>
+        <span class="stag">AWS IAM</span><span class="stag">Lambda</span><span class="stag">CloudTrail</span><span class="stag">EventBridge</span><span class="stag">Azure AD</span><span class="stag">GitHub Actions</span><span class="stag">SonarCloud</span><span class="stag">SAST/DAST</span>
       </div>
     </div>
     <div class="sb">
-      <div class="sb-head">Offensive Tools</div>
+      <div class="sb-head">IoT &amp; SBC Security</div>
       <div class="sb-tags">
-        <span class="stag">Metasploit</span><span class="stag">Burp Suite</span><span class="stag">OWASP ZAP</span><span class="stag">Nessus</span><span class="stag">VirusTotal</span><span class="stag">Any.Run</span><span class="stag">Shodan</span>
+        <span class="stag">IoT Pen Testing</span><span class="stag">SBC Testing</span><span class="stag">PSX Testing</span><span class="stag">FIPS Compliance</span><span class="stag">Regression Testing</span><span class="stag">Build Verification</span>
       </div>
     </div>
     <div class="sb">
       <div class="sb-head">Automation</div>
       <div class="sb-tags">
-        <span class="stag">Python</span><span class="stag">Bash</span><span class="stag">PowerShell</span><span class="stag">Perl</span><span class="stag">YAML</span><span class="stag">Git</span>
+        <span class="stag">Python</span><span class="stag">Perl</span><span class="stag">Bash</span><span class="stag">PowerShell</span><span class="stag">Git</span><span class="stag">YAML</span>
       </div>
     </div>
   </div>
@@ -594,9 +576,9 @@ footer {
       </div>
       <div class="te-org">Clinic Project · Indiana University Bloomington</div>
       <ul class="te-pts">
-        <li>Developed a comprehensive <span class="hl">Incident Response Plan</span> for a real enterprise client aligned with <span class="hl">NIST CSF, ISO 27001, and HIPAA</span>.</li>
-        <li>Performed <span class="hl">penetration testing for Tandem</span> — simulated attacks across network and application layers with risk-ranked remediation validated post-remediation.</li>
-        <li>Conducted <span class="hl">risk assessments and Third-Party Risk Assessments</span>, evaluating vendor controls and compliance evidence for internal and external auditors.</li>
+        <li>Performed <span class="hl">security risk analysis and penetration testing for Tandem</span> — developed strategic remediation roadmaps aligned with NIST CSF, ISO 27001, and HIPAA.</li>
+        <li>Conducted <span class="hl">Third-Party Risk Assessments</span> using a SIG-aligned evaluation framework; responded to security questionnaires and maintained audit evidence.</li>
+        <li>Developed and maintained <span class="hl">security policies, procedures, and documentation</span>; communicated findings clearly to technical teams and executive stakeholders.</li>
       </ul>
     </div>
 
@@ -607,8 +589,8 @@ footer {
       </div>
       <div class="te-org">Indiana University Bloomington</div>
       <ul class="te-pts">
-        <li>Led security labs for <span class="num">50+</span> graduate students covering secure network architecture, threat modelling, and <span class="hl">Linux hardening</span>.</li>
-        <li>Designed real-world attack simulations involving <span class="hl">iptables, misconfigurations, and network exploits</span>; developed SOPs and instructional documentation.</li>
+        <li>Delivered labs on <span class="hl">network security, SIEM monitoring, IDS/IPS, and Linux hardening</span> for <span class="num">50+</span> graduate students; designed real-world attack simulations.</li>
+        <li>Wrote <span class="hl">PowerShell and Bash scripts</span> to automate lab workflows; developed SOPs and instructional documentation for repeatable security procedures.</li>
       </ul>
     </div>
 
@@ -619,9 +601,10 @@ footer {
       </div>
       <div class="te-org">Ribbon Communications · Bengaluru, India</div>
       <ul class="te-pts">
-        <li>Analyzed millions of daily events via <span class="hl">Splunk SIEM</span>, detecting anomalies, lateral movement, and potential threats across telecom infrastructure.</li>
-        <li>Designed correlation searches and dashboards — reduced <span class="num">MTTR by ~25%</span> and <span class="num">false positives by ~30%</span> through iterative rule tuning.</li>
-        <li>Automated <span class="hl">alert triage workflows</span> using Python and Bash, significantly reducing manual investigation time.</li>
+        <li>Ran <span class="hl">Nessus vulnerability scans</span> on SBC and PSX infrastructure, triaging findings by severity and coordinating remediation with engineering teams.</li>
+        <li>Tested <span class="hl">FIPS 140-2 compliance using OpenSSL</span> across SBC and PSX builds — validated TLS cipher suite enforcement, protocol negotiation, and key management.</li>
+        <li>Performed <span class="hl">code reviews on Python and Perl test automation scripts</span> identifying security issues; built test environments to reproduce customer-reported issues and verify fixes across multiple builds.</li>
+        <li>Developed <span class="hl">Python and Perl automation scripts</span> for regression and security testing of the SBC product; analyzed millions of daily events via <span class="hl">Splunk SIEM</span> reducing MTTR by <span class="num">~25%</span> and false positives by <span class="num">~30%</span>.</li>
       </ul>
     </div>
 
@@ -632,9 +615,9 @@ footer {
       </div>
       <div class="te-org">Ribbon Communications · Bengaluru, India</div>
       <ul class="te-pts">
-        <li>Investigated <span class="num">200+</span> security incidents using <span class="hl">PCAP analysis (Wireshark, tcpdump)</span>, mapping attacker behaviors to MITRE ATT&CK TTPs.</li>
-        <li>Executed <span class="hl">API security assessments via Burp Suite</span> — identified broken auth, injection flaws, C2 traffic, and lateral movement patterns.</li>
-        <li>Performed <span class="hl">forensic analysis</span> and produced structured investigation reports supporting cross-functional remediation efforts.</li>
+        <li>Conducted <span class="hl">IoT and SBC device penetration testing</span> — assessed attack surfaces, authentication weaknesses, and cryptographic vulnerabilities across SIP, RTP, and SCTP using OpenSSL.</li>
+        <li>Ran <span class="hl">Nessus scans and code reviews</span> on network systems and test automation scripts; investigated <span class="num">200+</span> incidents using <span class="hl">PCAP analysis (Wireshark, tcpdump)</span> mapping behaviors to MITRE ATT&CK TTPs.</li>
+        <li>Executed <span class="hl">API security assessments via Burp Suite</span> — identified broken auth, injection flaws, C2 traffic, and lateral movement patterns; automated test case execution using Python and Perl.</li>
       </ul>
     </div>
 
@@ -652,8 +635,8 @@ footer {
     <div class="edu-card">
       <div class="edu-deg">M.S. Cybersecurity Risk Management</div>
       <div class="edu-school">Indiana University Bloomington</div>
-      <div class="edu-date">Aug 2024 – Expected May 2026</div>
-      <span class="edu-badge">In Progress</span>
+      <div class="edu-date">Aug 2024 – May 2026</div>
+      <span class="edu-badge">Graduating May 2026</span>
     </div>
     <div class="edu-card">
       <div class="edu-deg">B.E. Electronics &amp; Communication Engineering</div>
@@ -671,45 +654,43 @@ footer {
     <div class="sec-line"></div>
   </div>
   <div class="proj-layout reveal-stagger">
-    <!-- Featured row -->
     <div class="featured">
       <div class="pc big">
         <div class="pc-idx">01 · AWS · Python</div>
         <h3>Automated S3 Security Remediation</h3>
-        <p>Event-driven system detecting and auto-fixing S3 misconfigurations in real time via Lambda + EventBridge. Enforces IAM least-privilege policies. Response time: minutes → seconds at cloud scale.</p>
+        <p>Event-driven system detecting and auto-remediating S3 misconfigurations in real time via Lambda and EventBridge. Enforces IAM least-privilege and encryption policies. Response time: minutes to seconds at cloud scale.</p>
         <div class="pc-tags"><span class="ptag">Lambda</span><span class="ptag">CloudTrail</span><span class="ptag">EventBridge</span><span class="ptag">IAM</span><span class="ptag">Python</span></div>
       </div>
       <div class="pc big">
         <div class="pc-idx">02 · CI/CD · SAST</div>
         <h3>Automated DevSecOps Pipeline</h3>
-        <p>CI/CD pipeline integrating SonarCloud via GitHub Actions to automate SAST scanning aligned to OWASP Top 10. Enforces quality gates to block vulnerable code from production — zero manual intervention.</p>
-        <div class="pc-tags"><span class="ptag">GitHub Actions</span><span class="ptag">SonarCloud</span><span class="ptag">OWASP</span><span class="ptag">Python</span></div>
+        <p>CI/CD pipeline integrating SonarCloud via GitHub Actions to automate SAST scanning against a Flask app with 7 intentional OWASP vulnerabilities — SQL injection, XSS, command injection, path traversal, broken access control, weak crypto, and hardcoded secrets. Quality gates block vulnerable code from production.</p>
+        <div class="pc-tags"><span class="ptag">GitHub Actions</span><span class="ptag">SonarCloud</span><span class="ptag">OWASP</span><span class="ptag">Python</span><span class="ptag">Flask</span></div>
       </div>
     </div>
-    <!-- Smaller cards -->
     <div class="pc">
-      <div class="pc-idx">03 · Ansible · Linux</div>
-      <h3>Secure Apache Deployment</h3>
-      <p>Automated hardened Ubuntu provisioning: TLS via Certbot, UFW default-deny, Apache security headers, backup/restore.</p>
-      <div class="pc-tags"><span class="ptag">Ansible</span><span class="ptag">UFW</span><span class="ptag">Certbot</span><span class="ptag">Linux</span></div>
-    </div>
-    <div class="pc">
-      <div class="pc-idx">04 · Red Team · Home Lab</div>
+      <div class="pc-idx">03 · Red Team · Home Lab</div>
       <h3>Offensive Security Home Lab</h3>
-      <p>VirtualBox lab running Metasploit against Metasploitable &amp; DVWA. Privilege escalation, lateral movement, payload delivery.</p>
-      <div class="pc-tags"><span class="ptag">Metasploit</span><span class="ptag">Kali</span><span class="ptag">DVWA</span><span class="ptag">Python</span></div>
+      <p>VirtualBox lab running Metasploit against Metasploitable and DVWA. Privilege escalation, lateral movement, payload delivery — monitored via Splunk and Wireshark across Windows and Linux.</p>
+      <div class="pc-tags"><span class="ptag">Metasploit</span><span class="ptag">Kali</span><span class="ptag">Splunk</span><span class="ptag">Wireshark</span></div>
     </div>
     <div class="pc">
-      <div class="pc-idx">05 · Seed Lab · Crypto</div>
+      <div class="pc-idx">04 · Seed Lab · Crypto</div>
       <h3>Seed Lab Security Exercises</h3>
       <p>Buffer overflows, SQL injection, XSS, network attacks, and cryptographic protocol exercises in a controlled environment.</p>
       <div class="pc-tags"><span class="ptag">Linux</span><span class="ptag">C</span><span class="ptag">Python</span><span class="ptag">Crypto</span></div>
     </div>
     <div class="pc">
-      <div class="pc-idx">06 · GRC · Consulting</div>
+      <div class="pc-idx">05 · GRC · Consulting</div>
       <h3>Cybersecurity Clinic (Tandem)</h3>
-      <p>Full IRP, risk assessments, and penetration testing for a real enterprise client. NIST CSF + ISO 27001 + HIPAA. TPRA included.</p>
-      <div class="pc-tags"><span class="ptag">NIST CSF</span><span class="ptag">ISO 27001</span><span class="ptag">PenTest</span></div>
+      <p>Full security risk analysis, remediation roadmaps, and penetration testing for a real enterprise client. NIST CSF, ISO 27001, HIPAA. Third-Party Risk Assessment included.</p>
+      <div class="pc-tags"><span class="ptag">NIST CSF</span><span class="ptag">ISO 27001</span><span class="ptag">PenTest</span><span class="ptag">TPRA</span></div>
+    </div>
+    <div class="pc">
+      <div class="pc-idx">06 · Python · Security</div>
+      <h3>Password Strength Analyzer</h3>
+      <p>Python tool evaluating password strength using entropy analysis and dictionary and brute force pattern detection. Available on GitHub.</p>
+      <div class="pc-tags"><span class="ptag">Python</span><span class="ptag">Entropy</span><span class="ptag">Cryptography</span></div>
     </div>
   </div>
 </section>
@@ -751,7 +732,7 @@ footer {
   <div class="contact-box reveal">
     <div>
       <h2>Let's build something<br><span>secure.</span></h2>
-      <p class="contact-sub">Open to full-time roles · EAD · Relocating anywhere in the US</p>
+      <p class="contact-sub">Open to new grad &amp; mid-level roles · EAD · Relocating anywhere in the US</p>
     </div>
     <div class="contact-links">
       <a href="mailto:rahulrajkumarkori77@gmail.com" class="clink"><span class="clink-i">@</span>rahulrajkumarkori77@gmail.com</a>
@@ -764,13 +745,12 @@ footer {
 
 <footer class="reveal">
   <span class="foot-l">© 2026 Rahul Rajkumar Kori · Bloomington, IN</span>
-  <div class="foot-badges"><span class="fbadge">EAD</span><span class="fbadge">Open to relocation</span></div>
+  <div class="foot-badges"><span class="fbadge">EAD</span><span class="fbadge">New Grad</span><span class="fbadge">Mid-Level</span><span class="fbadge">Open to relocation</span></div>
 </footer>
 
-</div><!-- /.wrap -->
+</div>
 
 <script>
-// ── SCROLL REVEAL ────────────────────────────────────────────
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
@@ -779,14 +759,12 @@ const io = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
 
-// ── ANIMATED COUNTERS ────────────────────────────────────────
 function animateCounter(el) {
   const target = parseInt(el.dataset.count);
   const prefix = el.dataset.prefix || '';
   const suffix = el.dataset.suffix || '';
   const dur = 1200;
   const start = performance.now();
-
   function step(now) {
     const p = Math.min((now - start) / dur, 1);
     const eased = 1 - Math.pow(1 - p, 3);
