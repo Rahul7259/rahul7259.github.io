@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rahul Rajkumar Kori — Cybersecurity Engineer</title>
+<title>Rahul Rajkumar Kori — Network & Cybersecurity Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Clash+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ── TOKENS ─────────────────────────────────────────────────── */
@@ -146,7 +146,7 @@ nav {
 
 .hero-sub {
   font-size: 0.78rem; color: var(--txt2); line-height: 1.9;
-  margin-bottom: 2.5rem; max-width: 420px;
+  margin-bottom: 2.5rem; max-width: 440px;
 }
 
 .hero-sub strong { color: var(--g); font-weight: 500; }
@@ -456,8 +456,9 @@ footer {
     <div class="hero-eyebrow">Bloomington, IN &nbsp;·&nbsp; EAD &nbsp;·&nbsp; Open to relocation</div>
     <h1>Rahul<br>Rajkumar<br><span class="g">Kori.</span></h1>
     <p class="hero-sub">
-      <strong>Cybersecurity Engineer</strong> with 3+ years in security testing,<br>
-      identity &amp; access management, threat detection &amp; offensive security.<br>
+      <strong>Network &amp; Cybersecurity Engineer</strong> with 3+ years across<br>
+      perimeter security, SBC / VoIP infrastructure, SIEM monitoring,<br>
+      zero trust architecture &amp; cloud security.<br>
       M.S. Cybersecurity Risk Management — Indiana University (May 2026).
     </p>
     <div class="hero-btns">
@@ -473,18 +474,19 @@ footer {
       <span class="term-bar-title">rahul@kori-sec — bash</span>
     </div>
     <div class="term-body">
-      <span class="tl"><span class="ps">➜ ~</span> <span class="cmd">openssl s_client -connect sbc:443</span></span>
-      <span class="tl"><span class="d">Cipher: TLSv1.3 AES-256-GCM-SHA384</span></span>
-      <span class="tl"><span class="co">FIPS 140-2</span> <span class="v">COMPLIANT</span> <span class="d">✓</span></span>
+      <span class="tl"><span class="ps">➜ ~</span> <span class="cmd">nmap -sV -p 443,5061 sbc.corp</span></span>
+      <span class="tl"><span class="d">443/tcp   open  https  TLSv1.3</span></span>
+      <span class="tl"><span class="d">5061/tcp  open  sip-tls</span></span>
+      <span class="tl"><span class="co">ACL</span> <span class="v">ENFORCED</span> <span class="d">·</span> <span class="co">ZTNA</span> <span class="v">ACTIVE</span></span>
       <span class="tl">&nbsp;</span>
       <span class="tl"><span class="ps">➜ ~</span> <span class="cmd">cat profile.json</span></span>
       <span class="tl"><span class="d">{</span></span>
       <span class="tl"><span class="d">&nbsp; <span class="k">"name"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="v">"Rahul Kori"</span>,</span></span>
-      <span class="tl"><span class="d">&nbsp; <span class="k">"role"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="v">"Security Engineer"</span>,</span></span>
+      <span class="tl"><span class="d">&nbsp; <span class="k">"role"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="v">"Network Security Engineer"</span>,</span></span>
       <span class="tl"><span class="d">&nbsp; <span class="k">"yoe"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="v">3</span>,</span></span>
-      <span class="tl"><span class="d">&nbsp; <span class="k">"tools"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<span class="v">"Nessus"</span>,<span class="v">"OpenSSL"</span>,<span class="v">"Burp"</span>],</span></span>
-      <span class="tl"><span class="d">&nbsp; <span class="k">"protocols"</span>:&nbsp; [<span class="v">"SIP"</span>,<span class="v">"RTP"</span>,<span class="v">"TLS"</span>],</span></span>
-      <span class="tl"><span class="d">&nbsp; <span class="k">"certs"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<span class="v">"Sec+"</span>,<span class="v">"CCNA"</span>,<span class="v">"AWS"</span>],</span></span>
+      <span class="tl"><span class="d">&nbsp; <span class="k">"stack"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<span class="v">"Ribbon SBC"</span>,<span class="v">"Splunk"</span>,<span class="v">"Wazuh"</span>],</span></span>
+      <span class="tl"><span class="d">&nbsp; <span class="k">"protocols"</span>:&nbsp; [<span class="v">"SIP"</span>,<span class="v">"RTP"</span>,<span class="v">"TLS"</span>,<span class="v">"BGP"</span>],</span></span>
+      <span class="tl"><span class="d">&nbsp; <span class="k">"certs"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<span class="v">"CCNA"</span>,<span class="v">"Sec+"</span>,<span class="v">"NSE"</span>,<span class="v">"AWS"</span>],</span></span>
       <span class="tl"><span class="d">&nbsp; <span class="k">"available"</span>:&nbsp; <span class="v">true</span></span></span>
       <span class="tl"><span class="d">}</span></span>
       <span class="tl">&nbsp;</span>
@@ -496,16 +498,16 @@ footer {
 <!-- METRICS -->
 <div class="metrics reveal-stagger">
   <div class="metric">
-    <div class="metric-n" data-count="25" data-prefix="~" data-suffix="%">~25%</div>
-    <div class="metric-l">MTTR Reduction</div>
-  </div>
-  <div class="metric">
-    <div class="metric-n" data-count="30" data-prefix="~" data-suffix="%">~30%</div>
-    <div class="metric-l">False Positives Cut</div>
+    <div class="metric-n" data-count="500" data-suffix="+">500+</div>
+    <div class="metric-l">SIEM Logs Reviewed</div>
   </div>
   <div class="metric">
     <div class="metric-n" data-count="200" data-suffix="+">200+</div>
-    <div class="metric-l">Incidents Resolved</div>
+    <div class="metric-l">Incidents Investigated</div>
+  </div>
+  <div class="metric">
+    <div class="metric-n" data-count="200" data-suffix="+">200+</div>
+    <div class="metric-l">Students Taught</div>
   </div>
   <div class="metric">
     <div class="metric-n" data-count="3" data-suffix="+">3+</div>
@@ -522,39 +524,39 @@ footer {
   </div>
   <div class="skills-grid reveal-stagger">
     <div class="sb">
-      <div class="sb-head">Security Testing</div>
+      <div class="sb-head">Networking Fundamentals</div>
       <div class="sb-tags">
-        <span class="stag">Nessus</span><span class="stag">Burp Suite</span><span class="stag">Metasploit</span><span class="stag">Nmap</span><span class="stag">OpenSSL</span><span class="stag">FIPS 140-2</span><span class="stag">Code Review</span><span class="stag">CVSS 3.1</span><span class="stag">OWASP Top 10</span>
+        <span class="stag">TCP/IP</span><span class="stag">OSI Model</span><span class="stag">Subnetting</span><span class="stag">IP Address Mgmt</span><span class="stag">IP Routing</span><span class="stag">DNS</span><span class="stag">DHCP</span><span class="stag">VLANs</span><span class="stag">BGP</span><span class="stag">OSPF</span><span class="stag">ARP</span><span class="stag">Network Segmentation</span>
       </div>
     </div>
     <div class="sb">
-      <div class="sb-head">Identity &amp; Access</div>
+      <div class="sb-head">Network Security</div>
       <div class="sb-tags">
-        <span class="stag">Active Directory</span><span class="stag">LDAP</span><span class="stag">RBAC</span><span class="stag">Least Privilege</span><span class="stag">MFA</span><span class="stag">JML / Lifecycle</span><span class="stag">Access Reviews</span><span class="stag">AWS IAM</span><span class="stag">Azure AD</span>
+        <span class="stag">Firewalls</span><span class="stag">ACLs</span><span class="stag">Secure Architecture</span><span class="stag">TLS</span><span class="stag">VPN</span><span class="stag">Zero Trust</span><span class="stag">IDS/IPS</span><span class="stag">DDoS Mitigation</span><span class="stag">Rate Limiting</span><span class="stag">mTLS</span>
       </div>
     </div>
     <div class="sb">
-      <div class="sb-head">Threat Detection</div>
+      <div class="sb-head">Monitoring &amp; Troubleshooting</div>
       <div class="sb-tags">
-        <span class="stag">Splunk SPL</span><span class="stag">Threat Hunting</span><span class="stag">MITRE ATT&amp;CK</span><span class="stag">PCAP Analysis</span><span class="stag">IDS/IPS</span><span class="stag">DFIR</span><span class="stag">Wireshark</span><span class="stag">tcpdump</span>
+        <span class="stag">Splunk SIEM</span><span class="stag">Wazuh</span><span class="stag">Wireshark</span><span class="stag">tcpdump</span><span class="stag">Nessus</span><span class="stag">EDR/XDR</span><span class="stag">SailPoint</span><span class="stag">Active Directory</span><span class="stag">Log &amp; Alert Review</span>
       </div>
     </div>
     <div class="sb">
-      <div class="sb-head">Protocols &amp; Networking</div>
+      <div class="sb-head">Cloud Platforms</div>
       <div class="sb-tags">
-        <span class="stag">SIP</span><span class="stag">RTP</span><span class="stag">SCTP</span><span class="stag">VoIP</span><span class="stag">TCP/IP</span><span class="stag">TLS/SSL</span><span class="stag">BGP</span><span class="stag">OSPF</span><span class="stag">DNS</span><span class="stag">Firewalls</span>
+        <span class="stag">AWS VPC</span><span class="stag">EC2</span><span class="stag">Security Groups</span><span class="stag">IAM</span><span class="stag">Lambda</span><span class="stag">CloudTrail</span><span class="stag">EventBridge</span><span class="stag">Azure (familiar)</span><span class="stag">GCP (concepts)</span><span class="stag">Cloud Security</span>
       </div>
     </div>
     <div class="sb">
-      <div class="sb-head">Cloud &amp; DevSecOps</div>
+      <div class="sb-head">Scripting &amp; Documentation</div>
       <div class="sb-tags">
-        <span class="stag">AWS IAM</span><span class="stag">Lambda</span><span class="stag">CloudTrail</span><span class="stag">EventBridge</span><span class="stag">Azure AD</span><span class="stag">GitHub Actions</span><span class="stag">SonarCloud</span><span class="stag">SAST/DAST</span>
+        <span class="stag">Python</span><span class="stag">PowerShell</span><span class="stag">Bash</span><span class="stag">Git</span><span class="stag">Network Docs</span><span class="stag">SOPs</span><span class="stag">Cross-Team Collab</span>
       </div>
     </div>
     <div class="sb">
       <div class="sb-head">GRC &amp; Compliance</div>
       <div class="sb-tags">
-        <span class="stag">NIST CSF</span><span class="stag">ISO 27001</span><span class="stag">HIPAA</span><span class="stag">Risk Assessment</span><span class="stag">TPRM / SIG</span><span class="stag">Security Policy</span><span class="stag">Audit Support</span>
+        <span class="stag">NIST CSF</span><span class="stag">ISO 27001</span><span class="stag">HIPAA</span><span class="stag">Risk Assessment</span><span class="stag">TPRM / SIG</span><span class="stag">Access Reviews</span><span class="stag">Audit Support</span>
       </div>
     </div>
   </div>
@@ -571,13 +573,13 @@ footer {
 
     <div class="te reveal">
       <div class="te-top">
-        <div class="te-title">Teaching Assistant — Network Security</div>
+        <div class="te-title">Teaching Assistant — Security for Network Systems</div>
         <span class="te-badge">Aug 2025 – Dec 2025</span>
       </div>
       <div class="te-org">Indiana University Bloomington</div>
       <ul class="te-pts">
-        <li>Delivered labs on <span class="hl">network security, SIEM monitoring, IDS/IPS, and Linux hardening</span> for <span class="num">50+</span> graduate students; designed real-world attack simulations.</li>
-        <li>Guided students through <span class="hl">hands-on Active Directory labs</span> — user account creation, RBAC, and least-privilege access provisioning across Windows and Linux environments.</li>
+        <li>Delivered labs on <span class="hl">network security, SIEM monitoring, IDS/IPS, and Linux hardening</span> for <span class="num">200+</span> graduate students; designed real-world attack simulations.</li>
+        <li>Guided students through hands-on <span class="hl">Active Directory labs</span> — user account creation, RBAC, and least-privilege access provisioning across Windows and Linux environments.</li>
         <li>Wrote <span class="hl">PowerShell and Bash scripts</span> to automate lab workflows; developed SOPs and instructional documentation for repeatable security and access-management procedures.</li>
       </ul>
     </div>
@@ -589,10 +591,10 @@ footer {
       </div>
       <div class="te-org">Ribbon Communications · Bengaluru, India</div>
       <ul class="te-pts">
-        <li>Managed <span class="hl">user access, permissions, and authentication controls</span> across SBC and PSX infrastructure — enforced <span class="hl">least-privilege, RBAC, and MFA</span> policies and ran periodic access reviews to remediate over-privileged accounts.</li>
-        <li>Ran <span class="hl">Nessus vulnerability scans</span> on SBC and PSX infrastructure, triaging findings by severity and coordinating remediation with engineering teams.</li>
-        <li>Tested <span class="hl">FIPS 140-2 compliance using OpenSSL</span> across SBC and PSX builds — validated TLS cipher suite enforcement, protocol negotiation, and key management.</li>
-        <li>Developed <span class="hl">Python and Perl automation scripts</span> for regression and security testing; analyzed millions of daily events via <span class="hl">Splunk SIEM</span> reducing MTTR by <span class="num">~25%</span> and false positives by <span class="num">~30%</span>.</li>
+        <li>Configured and maintained perimeter security controls, leveraging <span class="hl">Ribbon SBC policy engines</span> alongside enterprise firewalls to enforce <span class="hl">Access Control Lists (ACLs), rate limiting, and DDoS mitigation</span> for VoIP infrastructure.</li>
+        <li>Resolved complex <span class="hl">Layer 3 routing and connectivity issues</span> affecting SBC signaling groups; implemented static routing and verified <span class="hl">SIP trunking</span> interoperability between service providers and enterprise networks.</li>
+        <li>Reviewed <span class="num">500+</span> <span class="hl">logs and alerts related to network traffic and suspicious activity</span> in Splunk SIEM, investigating events and driving them to resolution with clear documentation.</li>
+        <li>Collaborated with engineering teams to implement <span class="hl">secure network architecture and best practices</span>; documented network configurations, processes, and troubleshooting steps.</li>
       </ul>
     </div>
 
@@ -603,9 +605,10 @@ footer {
       </div>
       <div class="te-org">Ribbon Communications · Bengaluru, India</div>
       <ul class="te-pts">
-        <li>Administered <span class="hl">Active Directory accounts and access controls</span> — created, edited, and disabled accounts and configured LDAP profiles and group policy objects to enforce access across enterprise systems.</li>
-        <li>Executed <span class="hl">API security assessments via Burp Suite</span> — identified broken authentication, authorization bypass, and injection flaws; tracked remediation to completion.</li>
-        <li>Investigated <span class="num">200+</span> incidents using <span class="hl">PCAP analysis (Wireshark, tcpdump)</span> mapping behaviors to MITRE ATT&amp;CK TTPs; automated test case execution using Python and Perl.</li>
+        <li>Used <span class="hl">Wireshark and tcpdump</span> for deep packet inspection across <span class="num">200+</span> incidents — resolving complex <span class="hl">SIP signaling anomalies, call routing failures, and RTP media packet loss</span> across enterprise SBC deployments.</li>
+        <li>Configured network security controls including <span class="hl">TLS encryption for SIP signaling</span>, IP addressing, and access control policies on Ribbon SBC platforms to secure voice infrastructure.</li>
+        <li>Provisioned, racked, and cabled Ribbon SBC Core/Edge appliances — including the <span class="hl">SBC 5000/7000 series and SWe virtual editions</span> — managing initial IP addressing, TLS certificate deployment, and major firmware upgrades.</li>
+        <li>Deployed <span class="hl">Ribbon SBC SWe and PSX (Policy Server)</span> instances within <span class="hl">AWS and Docker</span> environments to simulate isolated, production-grade test networks.</li>
       </ul>
     </div>
 
@@ -624,7 +627,7 @@ footer {
       <div class="edu-deg">M.S. Cybersecurity Risk Management</div>
       <div class="edu-school">Indiana University Bloomington</div>
       <div class="edu-date">Aug 2024 – May 2026</div>
-      <span class="edu-badge">Completed</span>
+      <span class="edu-badge">Graduating May 2026</span>
     </div>
     <div class="edu-card">
       <div class="edu-deg">B.E. Electronics &amp; Communication Engineering</div>
@@ -644,40 +647,40 @@ footer {
   <div class="proj-layout reveal-stagger">
     <div class="featured">
       <div class="pc big">
-        <div class="pc-idx">01 · AWS · Python</div>
-        <h3>Automated S3 Security Remediation</h3>
-        <p>Event-driven system detecting and auto-remediating S3 misconfigurations in real time via Lambda and EventBridge. Enforces IAM least-privilege and encryption policies. Response time: minutes to seconds at cloud scale.</p>
-        <div class="pc-tags"><span class="ptag">Lambda</span><span class="ptag">CloudTrail</span><span class="ptag">EventBridge</span><span class="ptag">IAM</span><span class="ptag">Python</span></div>
+        <div class="pc-idx">01 · AWS · Zero Trust</div>
+        <h3>Zero Trust Network Access (ZTNA) Lab</h3>
+        <p>Designed and deployed a zero trust network on AWS — VPC segmentation with public and private subnets, IP address planning, NAT Gateway routing, and security groups enforcing network-level microsegmentation. Implemented OpenZiti with mTLS-encrypted tunnels for a dark network with zero open listening ports, plus Wazuh SIEM with custom detection rules for authentication failures and brute-force activity.</p>
+        <div class="pc-tags"><span class="ptag">AWS VPC</span><span class="ptag">Subnetting</span><span class="ptag">Security Groups</span><span class="ptag">OpenZiti</span><span class="ptag">mTLS</span><span class="ptag">Wazuh</span></div>
       </div>
       <div class="pc big">
-        <div class="pc-idx">02 · CI/CD · SAST</div>
-        <h3>Automated DevSecOps Pipeline</h3>
-        <p>CI/CD pipeline integrating SonarCloud via GitHub Actions to automate SAST scanning against a Flask app with 7 intentional OWASP vulnerabilities — SQL injection, XSS, command injection, path traversal, broken access control, weak crypto, and hardcoded secrets. Quality gates block vulnerable code from production.</p>
-        <div class="pc-tags"><span class="ptag">GitHub Actions</span><span class="ptag">SonarCloud</span><span class="ptag">OWASP</span><span class="ptag">Python</span><span class="ptag">Flask</span></div>
+        <div class="pc-idx">02 · AWS · Python</div>
+        <h3>Automated S3 Security Remediation</h3>
+        <p>Event-driven remediation pipeline on AWS using Lambda, CloudTrail, and EventBridge to continuously monitor cloud resources, detect S3 misconfigurations, and remediate them in near real time. Enforces least-privilege IAM policies as code and cuts response time from minutes to seconds with documented audit records.</p>
+        <div class="pc-tags"><span class="ptag">Lambda</span><span class="ptag">CloudTrail</span><span class="ptag">EventBridge</span><span class="ptag">IAM</span><span class="ptag">Python</span></div>
       </div>
     </div>
     <div class="pc">
       <div class="pc-idx">03 · GRC · Consulting</div>
-      <h3>IU Cybersecurity Clinic (Tandem)</h3>
-      <p>Full security risk analysis, remediation roadmaps, and penetration testing for a real enterprise client. NIST CSF, ISO 27001, HIPAA. Included access policy work and a Third-Party Risk Assessment using the SIG framework.</p>
-      <div class="pc-tags"><span class="ptag">NIST CSF</span><span class="ptag">ISO 27001</span><span class="ptag">PenTest</span><span class="ptag">TPRA</span><span class="ptag">IAM</span></div>
+      <h3>Cybersecurity Clinic — Tandem</h3>
+      <p>Defined and implemented access and authorization policies for a real enterprise client, ensuring approvals were documented and audit records maintained. Performed account audits and permission reporting aligned to NIST CSF, ISO 27001, and HIPAA; ran third-party risk assessments evaluating vendor IAM controls.</p>
+      <div class="pc-tags"><span class="ptag">NIST CSF</span><span class="ptag">ISO 27001</span><span class="ptag">HIPAA</span><span class="ptag">TPRA</span><span class="ptag">IAM</span></div>
     </div>
     <div class="pc">
-      <div class="pc-idx">04 · Red Team · Home Lab</div>
+      <div class="pc-idx">04 · CI/CD · SAST</div>
+      <h3>Automated DevSecOps Pipeline</h3>
+      <p>CI/CD pipeline integrating SonarCloud via GitHub Actions to automate SAST scanning against a Flask app with 7 intentional OWASP vulnerabilities — SQL injection, XSS, command injection, path traversal, broken access control, weak crypto, and hardcoded secrets. Quality gates block vulnerable code from production.</p>
+      <div class="pc-tags"><span class="ptag">GitHub Actions</span><span class="ptag">SonarCloud</span><span class="ptag">OWASP</span><span class="ptag">Flask</span></div>
+    </div>
+    <div class="pc">
+      <div class="pc-idx">05 · Red Team · Home Lab</div>
       <h3>Offensive Security Home Lab</h3>
-      <p>VirtualBox lab running Metasploit against Metasploitable and DVWA. Privilege escalation, lateral movement, payload delivery — monitored via Splunk and Wireshark across Windows and Linux.</p>
+      <p>VirtualBox lab running Metasploit against Metasploitable and DVWA — privilege escalation, lateral movement, payload delivery — monitored via Splunk and Wireshark across Windows and Linux.</p>
       <div class="pc-tags"><span class="ptag">Metasploit</span><span class="ptag">Kali</span><span class="ptag">Splunk</span><span class="ptag">Wireshark</span></div>
-    </div>
-    <div class="pc">
-      <div class="pc-idx">05 · Seed Lab · Crypto</div>
-      <h3>Seed Lab Security Exercises</h3>
-      <p>Buffer overflows, SQL injection, XSS, network attacks, and cryptographic protocol exercises in a controlled environment.</p>
-      <div class="pc-tags"><span class="ptag">Linux</span><span class="ptag">C</span><span class="ptag">Python</span><span class="ptag">Crypto</span></div>
     </div>
     <div class="pc">
       <div class="pc-idx">06 · Python · Security</div>
       <h3>Password Strength Analyzer</h3>
-      <p>Python tool evaluating password strength using entropy analysis and dictionary and brute force pattern detection. Available on GitHub.</p>
+      <p>Python tool evaluating password strength using entropy analysis and dictionary and brute-force pattern detection. Available on GitHub.</p>
       <div class="pc-tags"><span class="ptag">Python</span><span class="ptag">Entropy</span><span class="ptag">Cryptography</span></div>
     </div>
   </div>
@@ -692,16 +695,24 @@ footer {
   </div>
   <div class="certs reveal-stagger">
     <div class="cert">
-      <div class="cert-ico">SEC+</div>
-      <div><span class="cert-n">CompTIA Security+</span><span class="cert-m">Earned 2025</span></div>
-    </div>
-    <div class="cert">
       <div class="cert-ico">CCNA</div>
       <div><span class="cert-n">Cisco CCNA</span><span class="cert-m">Earned 2026</span></div>
     </div>
     <div class="cert">
+      <div class="cert-ico">SEC+</div>
+      <div><span class="cert-n">CompTIA Security+</span><span class="cert-m">Earned 2025</span></div>
+    </div>
+    <div class="cert">
+      <div class="cert-ico">NSE</div>
+      <div><span class="cert-n">Fortinet NSE — Network Security</span><span class="cert-m">Support Engineer</span></div>
+    </div>
+    <div class="cert">
       <div class="cert-ico">AWS<br>CCP</div>
       <div><span class="cert-n">AWS Cloud Practitioner</span><span class="cert-m">Earned 2025</span></div>
+    </div>
+    <div class="cert">
+      <div class="cert-ico amber">CySA+</div>
+      <div><span class="cert-n">CompTIA CySA+<span class="wip">IN PROGRESS</span></span><span class="cert-m">Expected 2026</span></div>
     </div>
   </div>
 </section>
